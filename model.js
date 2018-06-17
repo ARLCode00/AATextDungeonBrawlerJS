@@ -1,3 +1,53 @@
+class Character {
+  constructor(name, maxHealth, attackRating, blockRating) {
+    this.name = name;
+    this.maxHealth = maxHealth;
+    this.currentHealth = maxHealth;
+    this.attackRating = attackRating;
+    this.blockRating = blockRating;
+  }
+
+  getTitle() {
+    return this.name;
+  }
+}
+
+class Enemy extends Character {
+  constructor(type, maxHealth, attackRating, blockRating, goldDrop, healingPotionDrop, keyDrop) {
+    super(maxHealth, attackRating, blockRating);
+    this.type = type;
+    this.goldDrop = goldDrop;
+    this.healingPotionDrop = healingPotionDrop;
+    this.keyDrop = keyDrop;
+    this.spawn = null;
+  }
+
+  getTitle(capitalized) {
+    var vowels = 'AaEeIiOoUu';
+    if (vowels.includes(this.type.substring(0, 1))) {
+      return capitalized ? 'An ' + this.type : 'an ' + this.type;
+    }
+    else {
+      return capitalized ? 'A ' + this.type : 'a ' + this.type;
+    }
+  }
+}
+
+class Boss extends Enemy {
+  constructor(final, type, maxHealth, attackRating, blockRating, goldDrop, healingPotionDrop, keyDrop) {
+    super(type, maxHealth, attackRating, blockRating, goldDrop, healingPotionDrop, keyDrop);
+    this.final = false;
+  }
+}
+
+class Chest {
+  constructor(gold, healingPotion, randomEncounter) {
+    this.gold = gold;
+    this.healingPotion = healingPotion;
+    this.randomEncounter = randomEncounter;
+  }
+}
+
 class Door {
   constructor() {
     this.name = null;
@@ -7,15 +57,14 @@ class Door {
     this.riddle = null;
     this.riddleAnswer = null;
     this.diceValue = 0;
-
   }
 }
 
 class Room {
   constructor() {
     this.name = null;
-    this.type = 'chamber';
-    this.message = '';
+    this.type = null;
+    this.message = null;
     this.north = null;
     this.south = null;
     this.east = null;
@@ -27,20 +76,10 @@ class Room {
   }
 }
 
-class Enemy {
-  constructor() {
-    this.name = null;
-    this.type = null;
-    this.maxHealth = 0;
-    this.currentHealth = 0;
-    this.attackRating = 0;
-    this.goldDrop = 0;
-    this.healingPotionDrop = 0;
-    this.spawn = null;
-  }
-}
-
 module.exports = {
+  Enemy : Enemy,
+  Boss, Boss,
+  Chest, Chest,
   Door : Door,
   Room : Room
 }
