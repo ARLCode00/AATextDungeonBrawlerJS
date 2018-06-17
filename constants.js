@@ -1,3 +1,6 @@
-max.boundary.scale = 100;
-player.attack.rating = 75;
-player.block.rating = 30;
+const BoundaryScale = 99;
+
+const PlayerMaxHealth = 200;
+const PlayerAttackRating = 75;
+const PlayerBlockRating = 30;
+const PlayerMaxNumberOfHealingPotions = 10;

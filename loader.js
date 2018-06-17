@@ -1,11 +1,12 @@
-const E = require('./environment.js');
-const C = require('./characters.js');
+const Constants = require('./constants.js');
+const Environment = require('./environment.js');
+const Characters = require('./characters.js');
 
 
-var room = new E.Room();
+var room = new Environment.Room();
 room.name = 'Entrance';
 
-var foe = new C.Enemy('Vampire', 100, 75, 50, 200, 15, 'vamp');
+var foe = new Characters.Enemy('Vampire', 100, 75, 50, 200, 15, 'vamp');
 
 console.log(room.name);
 console.log(foe.getTitle(true));
