@@ -46,6 +46,20 @@ class Chest {
     this.healingPotion = healingPotion;
     this.randomEncounter = randomEncounter;
   }
+
+  isEmpty() {
+    return this.gold == 0 && this.healingPotion == 0;
+  }
+
+  notEmpty() {
+    return ! this.isEmpty();
+  }
+
+  empty() {
+    this.gold = 0;
+    this.healingPotion = 0;
+    this.randomEncounter = false;
+  }
 }
 
 class Door {
