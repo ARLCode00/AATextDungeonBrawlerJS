@@ -36,6 +36,7 @@ class Enemy {
     this.attackRating = 0;
     this.goldDrop = 0;
     this.healingPotionDrop = 0;
+    this.spawn = null;
   }
 }
 
